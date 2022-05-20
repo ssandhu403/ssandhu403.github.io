@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Oh My Wordle!</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LED6XWDC9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0LED6XWDC9');
+    </script>
+
+    <!-- Bootstrap -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- <script defer src="./scripts/myscript.js"></script> -->
+    <script type="module" src="./scripts/myscript.js"></script>
+    <link rel="stylesheet" href="./styles/mystyle.css">
+
+    <!-- confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body class="bg-light font-monospace">
+    <header class="page-header header container-fluid">
+        <h2 class="display-3 text-center">Oh My Wordle!</h2>
+    </header>
+
+    <div class="text-center"
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="unlimited-guesses-checkbox">
+            <label class="form-check-label" for="unlimited-guesses-checkbox">Enable unlimited guesses?</label>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid" id="entire-game-container" style="display:none">
+
+        <div class="row" id="status-message-container" style="display:none">
+            <div class="text-center alert alert-primary" role="alert">
+                <span id="status-message"></span>
+                
+                <div class="card bg-light">
+                    <div class="card-body">
+                      <h5 id="the-word" class="card-title"></h5>
+                      <p id="the-word-definition" class="card-text"></p>
+                    </div>
+                </div>
+
+                <br>
+                <button style="margin-top: 10px" type="button" class="text-center alert-primary btn-dark" onclick="window.location.reload()">Play Again?</button>
+                <div class="fst-italic" style="margin-top:10px" id="joke"></div>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col bg-light overflow-scroll" id="scroll-container">
+                <div class="row">
+                    <div class="col bg-light">
+                        <div class="container-fluid" id="grid-container"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col bg-light">
+                <div class="container-fluid" id="keyboard-container">
+                    <div class="d-flex justify-content-center flex-nowrap" id="keyboard-row-0"></div>
+                    <div class="d-flex justify-content-center flex-nowrap" id="keyboard-row-1"></div>
+                    <div class="d-flex justify-content-center flex-nowrap" id="keyboard-row-2"></div>
+                    <div class="d-flex justify-content-center flex-nowrap" id="keyboard-row-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-light">
+        <div class="container">
+          <span style="display:none" "text-muted">v 0.8</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
