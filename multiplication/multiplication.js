@@ -1,4 +1,4 @@
-const NUM_QUESTIONS_PER_SESSION = 10
+const NUM_QUESTIONS_PER_SESSION = 5
 
 let allPossibleQuestions = []
 let currentQuestions = []
@@ -18,7 +18,7 @@ let attempt = {
 }
 
 let entry = {
-    attempts: [attempt, attempt, attempt],
+    attempts: [attempt, attempt, attempt]
 }
 
 init()
@@ -195,6 +195,7 @@ function handleSubmitAnswerButtonClick() {
         document.getElementById('startButton').style.display = 'block'
         document.getElementById('questionAndAnswerContainer').style.display = 'none'
         document.getElementById('resultsContainer').style.display = 'block'
+        refreshProgress()
     }
 }
 
@@ -325,7 +326,7 @@ function handleFillRandomProgressButtonClick() {
             }
 
             let questionFromStorage = readStorage(i, j)
-            for (let k = 0; k < 3; k++) {
+            for (let k = 0; k < entry.attempts.length; k++) {
                 let hasBeenAttempted = ((getRandomIntBetween(0, 100) % 2) === 0) ? true : false
                 
                 if ((k > 0) && (questionFromStorage.attempts[k-1].hasBeenAttempted === false)) {
@@ -345,7 +346,33 @@ function handleFillRandomProgressButtonClick() {
             }
 
             writeStorage(createKey(i, j), questionFromStorage)
+        }   
+    }
 
+    refreshProgress()
+}
+
+function handlePrefillButtonClick() {
+    for (let i = 1; i < 13; i++) {
+        for (let j = 1; j < 13; j++) {
+
+            let questionFromStorage = null
+
+            if ((i == 1) || (j == 1) || (i == 10) || (j == 10)) {
+                questionFromStorage = readStorage(1, j)
+            }
+        
+            if (questionFromStorage != null) {
+                for (let k = 0; k < entry.attempts.length; k++) {
+                    questionFromStorage.attempts[k].hasBeenAttempted = true
+                    questionFromStorage.attempts[k].isAnsweredCorrectly = true
+                    questionFromStorage.attempts[k].timeTaken = 0
+                }
+                writeStorage(createKey(i, j), questionFromStorage)
+            }
         }
     }
+
+    refreshProgress()
 }
+ 
