@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SOH CAH TOA Quiz – With Answers</title>
+  <title>SOH CAH TOA Quiz – Reveal Answers</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
     .question { margin-bottom: 25px; }
-    .answer { margin-top: 8px; color: green; }
+    .answers { display: none; margin-top: 20px; }
+    .answer { margin-bottom: 15px; color: green; }
+    button { margin-top: 20px; padding: 8px 12px; }
   </style>
+  <script>
+    function showAllAnswers() {
+      document.getElementById("answers").style.display = "block";
+    }
+  </script>
 </head>
 <body>
-  <h1>SOH CAH TOA Trigonometry Quiz – With Answers</h1>
+  <h1>SOH CAH TOA Trigonometry Quiz</h1>
 
   <div class="question">
     <strong>1. Which side is considered "opposite" in a right triangle?</strong><br>
     A) The side across from the angle<br>
     B) The longest side<br>
     C) The side forming the right angle<br>
-    D) The side next to the angle<br>
-    <div class="answer">✅ Correct: A) The side across from the angle<br>
-    Explanation: The "opposite" side is the one directly across from the angle being measured.</div>
+    D) The side next to the angle
   </div>
 
   <div class="question">
@@ -27,9 +32,7 @@
     A) 0.38<br>
     B) 0.6<br>
     C) 0.5<br>
-    D) 0.77<br>
-    <div class="answer">✅ Correct: A) 0.38<br>
-    Explanation: Cos(C) = Adjacent / Hypotenuse = 5 / 13 ≈ 0.3846, which rounds to 0.38.</div>
+    D) 0.77
   </div>
 
   <div class="question">
@@ -37,9 +40,7 @@
     A) Sine<br>
     B) Tangent<br>
     C) Cosine<br>
-    D) Secant<br>
-    <div class="answer">✅ Correct: B) Tangent<br>
-    Explanation: Tangent is defined as the ratio of the opposite side to the adjacent side (TOA).</div>
+    D) Secant
   </div>
 
   <div class="question">
@@ -47,9 +48,7 @@
     A) 12.5<br>
     B) 10<br>
     C) 8<br>
-    D) 6<br>
-    <div class="answer">✅ Correct: C) 8<br>
-    Explanation: Opposite = sin(D) × Hypotenuse = 0.8 × 10 = 8 units.</div>
+    D) 6
   </div>
 
   <div class="question">
@@ -57,8 +56,27 @@
     A) angle = cos⁻¹(hypotenuse / adjacent)<br>
     B) angle = cos(adjacent / hypotenuse)<br>
     C) angle = cos⁻¹(adjacent / hypotenuse)<br>
-    D) angle = cos(hypotenuse / adjacent)<br>
-    <div class="answer">✅ Correct: C) angle = cos⁻¹(adjacent / hypotenuse)<br>
+    D) angle = cos(hypotenuse / adjacent)
+  </div>
+
+  <!-- Button to reveal all answers -->
+  <button onclick="showAllAnswers()">Show All Answers</button>
+
+  <!-- Hidden answers section -->
+  <div id="answers" class="answers">
+    <div class="answer">1. ✅ Correct: A) The side across from the angle<br>
+    Explanation: The "opposite" side is the one directly across from the angle being measured.</div>
+
+    <div class="answer">2. ✅ Correct: A) 0.38<br>
+    Explanation: Cos(C) = Adjacent / Hypotenuse = 5 / 13 ≈ 0.3846, which rounds to 0.38.</div>
+
+    <div class="answer">3. ✅ Correct: B) Tangent<br>
+    Explanation: Tangent is defined as the ratio of the opposite side to the adjacent side (TOA).</div>
+
+    <div class="answer">4. ✅ Correct: C) 8<br>
+    Explanation: Opposite = sin(D) × Hypotenuse = 0.8 × 10 = 8 units.</div>
+
+    <div class="answer">5. ✅ Correct: C) angle = cos⁻¹(adjacent / hypotenuse)<br>
     Explanation: To find the angle, use the inverse cosine function: cos⁻¹(adjacent / hypotenuse).</div>
   </div>
 
